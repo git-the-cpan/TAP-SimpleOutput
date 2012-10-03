@@ -1,0 +1,49 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 41dae2af2655e77dcb6067ccf3bc1469fbcb6cae Changes
+SHA1 4cd2381bd3db1acdf8d05ee89d9b540d8f287358 INSTALL
+SHA1 05207cbc5971035849c1de2c7cb3babaeaccb6fb LICENSE
+SHA1 073ff9d55c6bb93d7080e307deccc81c583e6e75 MANIFEST
+SHA1 d7d1ab92d1b7196bed95c38d3586752061a82a03 META.json
+SHA1 9220de40f553501960de477d055b99a1af33978b META.yml
+SHA1 3c6579a85c7798853329a6f1711276e9f2554c00 Makefile.PL
+SHA1 dd30ae430aa2627ba1c5d8ce5abc2ea400a2b93a README
+SHA1 eb74b93d5f88b8aeb2fc7921f0c61e80e7087d6c dist.ini
+SHA1 b8e8884968b7a91747686fbe94b21a50645897c8 lib/TAP/SimpleOutput.pm
+SHA1 359473961e95ccb9c951073c0affa9874ff7d117 t/00-compile.t
+SHA1 7884fcc6663b0e7a50c11407f82d5de9bf147994 t/000-report-versions-tiny.t
+SHA1 ea0045c75f3495ea81a9a1a3572e93a95e4b2d9b t/author-pod-spell.t
+SHA1 90b49970edf490ab4de50d03a250aa13e70c2c64 t/basic.t
+SHA1 9c3627ff37f4fd5bddc34bf46cf3359eaf76a060 t/release-consistent-version.t
+SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
+SHA1 fce614987303858b5d6e40897f37b412f4c7ef9c t/release-has-version.t
+SHA1 4037e7aaca136949a2e24b700895e358d5d5e438 t/release-no-smart-comments.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 e598f851e30254c8ca6cc985a1bf964e367fc104 t/release-pod-coverage.t
+SHA1 00f06a1d0df31ef4fddff96746e17030a29c5410 t/release-pod-syntax.t
+SHA1 ae6d0015bad7eb29d576d0b0bc4def0e55520026 t/release-portability.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iQEcBAEBAgAGBQJQa7D0AAoJEOd5N1CvIgQkkPwH/R3mNsM5Cg4vM8K3WBQHoHut
+Wuod3QkNBkPyJmmLer3vjjTlxdcC64Mp8mNRKrT2UfIqteDK4VwrWJUnQu8KTb6p
+TLiOXwwYVfrU+brHRm1WqZn4SBK45mOoNQcvd2bgdWw74/NkO70ltQuxmpEUs/im
+OtmrnUjxyqbGmJMIlwyRUT2Sf538rJTa8izOvzzmLAXPxW7WSTnEdyCDGJkJD/KD
+ud1nM+A5g214czC1nTC8nDsE9YuI8GnRTTrdHADuSuRd5B10DxpK51DUL/clNgum
+AO9EhVFiIevwY89lgecITeX3eWvNYugXhLHaFxMxEcoXQuSIS7b30beZB1alTXk=
+=a2Ts
+-----END PGP SIGNATURE-----
