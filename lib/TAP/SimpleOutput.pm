@@ -8,16 +8,21 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package TAP::SimpleOutput;
-{
-  $TAP::SimpleOutput::VERSION = '0.001';
+BEGIN {
+  $TAP::SimpleOutput::AUTHORITY = 'cpan:RSRCHBOY';
 }
+{
+  $TAP::SimpleOutput::VERSION = '0.002';
+}
+# git description: 0.001-9-g9dc6c5b
+
 
 # ABSTRACT: Simple closure-driven TAP generator
 
 use strict;
 use warnings;
 
-use Sub::Exporter -setup => { exports => [ qw{ counters } ] };
+use Sub::Exporter::Progressive -setup => { exports => [ qw{ counters } ] };
 
 
 sub counters {
@@ -33,6 +38,7 @@ sub counters {
         sub { $indent .     'ok ' . ++$i . " # skip $_[0]" },
         sub { $indent . "1..$i"                            },
         sub { "$_[0] # TODO $_[1]"                         },
+        sub { $indent . "$_[0]"                            },
     );
 }
 
@@ -42,7 +48,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl SUBTESTS subtests Subtests subtest Subtest
 
@@ -52,7 +58,7 @@ TAP::SimpleOutput - Simple closure-driven TAP generator
 
 =head1 VERSION
 
-This document describes version 0.001 of TAP::SimpleOutput - released October 02, 2012 as part of TAP-SimpleOutput.
+This document describes version 0.002 of TAP::SimpleOutput - released November 10, 2013 as part of TAP-SimpleOutput.
 
 =head1 SYNOPSIS
 

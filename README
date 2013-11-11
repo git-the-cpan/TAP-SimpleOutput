@@ -2,8 +2,8 @@ NAME
     TAP::SimpleOutput - Simple closure-driven TAP generator
 
 VERSION
-    This document describes version 0.001 of TAP::SimpleOutput - released
-    October 02, 2012 as part of TAP-SimpleOutput.
+    This document describes version 0.002 of TAP::SimpleOutput - released
+    November 10, 2013 as part of TAP-SimpleOutput.
 
 SYNOPSIS
         use TAP::SimpleOutput 'counter';
