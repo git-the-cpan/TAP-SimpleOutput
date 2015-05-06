@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.73.
+signed via the Module::Signature module, version 0.78.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,40 +14,45 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 55ac697642a18dd7d974736a3d06fd531aa82382 .travis.yml
-SHA1 3ba8c4eca477038294112ff57d7268a47070a97a Changes
-SHA1 4cd2381bd3db1acdf8d05ee89d9b540d8f287358 INSTALL
-SHA1 05207cbc5971035849c1de2c7cb3babaeaccb6fb LICENSE
-SHA1 410313cdfa338b7d067012dbb16e5e1f8492f877 MANIFEST
-SHA1 57c5d1b6a29d76b4497baad99423dca08ebc9eb6 META.json
-SHA1 df8614fe4f4c042349145542f0b62423831cbd80 META.yml
-SHA1 dd88c95a748de0730f8341759a5a31c937cc6239 Makefile.PL
-SHA1 26b82b034a870e2d5d57533142f43e30c183aa27 README
-SHA1 b11aedc17c2fa6ec6c01395df9c1bf7c3aa83211 cpanfile
-SHA1 fd13e96f9bbea670884146c9259162d565d3a7d9 dist.ini
-SHA1 a018a9ab8aadc840ca265b24cf32acb7128c1212 lib/TAP/SimpleOutput.pm
-SHA1 38f7e2fa39c5ae49b1e3835c93b540e4ca5f9ecb t/00-check-deps.t
-SHA1 ea23153502fa9a4145c15b81b79725816ee3ff71 t/00-compile.t
-SHA1 9170df9299e337622867af09e4ac085ba6c728a2 t/000-report-versions-tiny.t
-SHA1 5c990d53e490aa2dd6a4bd464a9376d3deaa3809 t/author-pod-spell.t
-SHA1 90b49970edf490ab4de50d03a250aa13e70c2c64 t/basic.t
-SHA1 9c3627ff37f4fd5bddc34bf46cf3359eaf76a060 t/release-consistent-version.t
-SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
-SHA1 fce614987303858b5d6e40897f37b412f4c7ef9c t/release-has-version.t
-SHA1 cc9a623cc71d687df17ce02cf3e2fabbb67dd125 t/release-minimum-version.t
-SHA1 4037e7aaca136949a2e24b700895e358d5d5e438 t/release-no-smart-comments.t
-SHA1 b33ea634d7ef725aa6958224370db9913a7d83e2 t/release-no-tabs.t
-SHA1 e598f851e30254c8ca6cc985a1bf964e367fc104 t/release-pod-coverage.t
-SHA1 bad93ef703abb409b6d175953ad5e1cec440e812 t/release-pod-linkcheck.t
-SHA1 00f06a1d0df31ef4fddff96746e17030a29c5410 t/release-pod-syntax.t
+SHA1 007d9eadef38d89600c372861a631e950cadab7e .travis.yml
+SHA1 bc60d2ffd6e2c2c563a4cd3fe3865d97d6ba8a9d Changes
+SHA1 bf2d713ceca5b8ad3d680ed15baba1b89df7e149 LICENSE
+SHA1 b90fc150bcd17b64492836cc271f002992699b1f MANIFEST
+SHA1 dfe19b614951043b77f2746b83197808500a8b8c META.json
+SHA1 1ef8ce902e0876890e5e6475fed5235b8cd0bf07 META.yml
+SHA1 26e201d530c440db5e08a13de3c79b52e630105f Makefile.PL
+SHA1 66b8088407e17989d1df91491ad06492210c938a README
+SHA1 38b208fd06576466de90656f84613e1367fae4b4 cpanfile
+SHA1 eb74b93d5f88b8aeb2fc7921f0c61e80e7087d6c dist.ini
+SHA1 dcc1e98697020b808a8e01612d05832749914b13 lib/TAP/SimpleOutput.pm
+SHA1 c522c3928158e64bd97d34d20cbfe0b5305a7eb2 t/00-check-deps.t
+SHA1 6c3cdc68cf24a14ff8a683f80417ecddd809425c t/00-compile.t
+SHA1 a1a37bcea879e7accb5975e3d977c1b8c9c9c5b4 t/000-report-versions-tiny.t
+SHA1 d1897aa43ebcbb70848f9a096c5de1ef46dd2a50 t/basic.t
+SHA1 768ac7c573d2ffe5b5de27d05990a9a016df0557 xt/author/eol.t
+SHA1 5899ecd276e56ac141505dd623b1bbc0b156d381 xt/author/no-tabs.t
+SHA1 0a2add6a87fad82c93a5d7e841f14958008eaab1 xt/author/pod-spell.t
+SHA1 a7948d34cfaad400286ea5d5fa6206c4c7e2552c xt/release/consistent-version.t
+SHA1 9d7df8fdb9cb4ccc2893afc53bf3beedfbfcfdd3 xt/release/has-version.t
+SHA1 5fed4d5d7d3be557a7d2172afd0a9f4e72732e1c xt/release/minimum-version.t
+SHA1 c2ed01cfe10523fa353a6651c8e3642aeeeb8bbe xt/release/no-smart-comments.t
+SHA1 d94890d121e38b8db47acbc1d7ce401fa2c581c4 xt/release/pod-coverage.t
+SHA1 6e11276f21e5699b4d9ad9f2dfb29081e629791d xt/release/pod-linkcheck.t
+SHA1 f4838755b5c93983789d5c4afb9cef91c6bef05e xt/release/pod-syntax.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.11 (GNU/Linux)
+Version: GnuPG v1
 
-iQEcBAEBAgAGBQJSgIIfAAoJEOd5N1CvIgQkY54H/A4gO2QYLAQ/t0r9nHVO0+/L
-nZDGwrhpVoDmsKRO+IOUBTXESzJW5otX9LP1MD9B2b9x5bqi7C3spmCys8GknhJO
-x1khtsY+RUTXha2lX6zZgj2f5uomBDEv+dJRsHVrasZiqQ2DHwxtJTuu5RAs+P57
-sQhYAWjeINEtg0ED6sNXJiiIw2J1c+7bFziP3pfVE7JXffiWUrg8C23JGZsrBqrt
-g8AMSW44HHxbj7/1uEjgHgIqgaXQfSfoVL4u7Z58rYQI4vzvl8asizpGl21mOSOY
-wGz9uY3udgZ1xC967QGP3hwMUvX1ZS9VXE4VZng/wggOQAEEQRfJ96dDfnpa8PQ=
-=HkmO
+iQIcBAEBAgAGBQJVSZ98AAoJEJ/Rlq0N/NXW3YAP/jE0SGezNfSYabsdE6U0HS7z
+6m+Ap5q5xbHJV/ladjNUwwL2hOHlhkMZD4FxiBgX/8wNrbeAKb+Esf89yLIN5n9l
+lb+7RTBzi//hLWZqrLYHuQ2N0b7jDfgkVWy4VvhIRiQRr6whtKSIEBnUNkwy68JF
+A7XJg0QjXwsGtIsrd4PXP4NP5XLGK1cRevtxDur3U6M1yt61Ed9Dv108DtUT+PZd
+vIhs7aGGFfJHgRfNZqc51C9qXwR382IWsEJD6DLlaF+ns7uZYfBsUy5cXUxzKAil
+obONfa1hmV4Ef0Fs1ZXmk+XaS+GRQYTaOWgO1JJp2nToydJTMy33oVjNty6JnkNE
++yORlihNz3J3tpX+P4TZ0ef4A4ir9ImX3to1uWiE77+7PJQ9E6Pab1c65HSAPBv5
+er+CyyzUp1LByBWT1KkUw8FlVnc0GFIIy6Ti7LOc2/x/+HVDwaogLiC6Rbs6lOP+
+wDoZ/6hrczYtUL4avo20pkwJdMcncHIgM+2zYcPLkHLAQ8ijKNsfCNjN+RgOuTyV
+YGH+IlxDX5QKwSBIv5KrBrSrzgQboSqpx+VdMqIxg83qi7WGAG83TdzPzUpKw/Pq
+GfyUDfqSCyp+g2oxJKoDb307TOHA56gdOskMIcSvumNtUdspaCpvnvnRuxXCjWAa
+FhxkCftaj8KbognWnyG1
+=HSG+
 -----END PGP SIGNATURE-----

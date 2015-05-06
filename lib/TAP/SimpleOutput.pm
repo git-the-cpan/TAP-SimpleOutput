@@ -8,24 +8,33 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package TAP::SimpleOutput;
-BEGIN {
-  $TAP::SimpleOutput::AUTHORITY = 'cpan:RSRCHBOY';
-}
-{
-  $TAP::SimpleOutput::VERSION = '0.002';
-}
-# git description: 0.001-9-g9dc6c5b
-
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.002-10-gd6df9d1
+$TAP::SimpleOutput::VERSION = '0.003';
 
 # ABSTRACT: Simple closure-driven TAP generator
 
 use strict;
 use warnings;
 
-use Sub::Exporter::Progressive -setup => { exports => [ qw{ counters } ] };
+use Sub::Exporter::Progressive -setup => {
+    exports => [
+        qw{ counters counters_and_levelset },
+    ],
+};
+
 
 
 sub counters {
+    my @counters = _build_counters(@_);
+    pop @counters;
+    return @counters;
+}
+
+
+sub counters_and_levelset { goto \&_build_counters }
+
+sub _build_counters {
     my $level = shift @_ || 0;
     $level *= 4;
     my $i = 0;
@@ -33,12 +42,21 @@ sub counters {
     my $indent = !$level ? q{} : (' ' x $level);
 
     return (
-        sub { $indent .     'ok ' . ++$i . " - $_[0]"      },
-        sub { $indent . 'not ok ' . ++$i . " - $_[0]"      },
-        sub { $indent .     'ok ' . ++$i . " # skip $_[0]" },
-        sub { $indent . "1..$i"                            },
-        sub { "$_[0] # TODO $_[1]"                         },
-        sub { $indent . "$_[0]"                            },
+        sub { $indent .     'ok ' . ++$i . " - $_[0]"      }, # ok
+        sub { $indent . 'not ok ' . ++$i . " - $_[0]"      }, # nok
+        sub { $indent .     'ok ' . ++$i . " # skip $_[0]" }, # skip
+        sub { $indent . "1..$i"                            }, # plan
+        sub { "$_[0] # TODO $_[1]"                         }, # todo
+        sub { $indent . "$_[0]"                            }, # freeform
+        sub {
+            # if we're called with a new level, set $level and $indent
+            # appropriately
+            do { $level = $_[0] * 4; $indent = !$level ? q{} : (' ' x $level) }
+                if defined $_[0];
+
+            # return our new/set level regardless, in the form we passed it in
+            return $level / 4;
+        },
     );
 }
 
@@ -52,13 +70,15 @@ __END__
 
 =for :stopwords Chris Weyl SUBTESTS subtests Subtests subtest Subtest
 
+=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed
+
 =head1 NAME
 
 TAP::SimpleOutput - Simple closure-driven TAP generator
 
 =head1 VERSION
 
-This document describes version 0.002 of TAP::SimpleOutput - released November 10, 2013 as part of TAP-SimpleOutput.
+This document describes version 0.003 of TAP::SimpleOutput - released May 05, 2015 as part of TAP-SimpleOutput.
 
 =head1 SYNOPSIS
 
@@ -107,12 +127,14 @@ output.  It takes an optional C<$level> that determines the indentation level
 variable that keeps track of how many test have been run so far; this allows
 them to always output the correct test number.
 
-    my ($_ok, $_nok, $_skip, $_plan) = counters();
+    my ($_ok, $_nok, $_skip, $_plan, $_todo, $_freeform) = counters();
 
-    $_ok->('whee')   returns "ok 1 - whee"
-    $_nok->('boo')   returns "not ok 2 - boo"
-    $_skip->('baz')  returns "ok 3 # skip baz"
-    $_plan->()       returns "1..3"
+    $_ok->('whee')            returns "ok 1 - whee"
+    $_nok->('boo')            returns "not ok 2 - boo"
+    $_skip->('baz')           returns "ok 3 # skip baz"
+    $_plan->()                returns "1..3"
+    $_todo->('bip', 'daleks') returns "bip # TODO daleks"
+    $_freeform->('yay')       returns "yay"
 
 Note that calling the C<$_plan> coderef only returns an intelligible response
 when called after all the output has been generated; this is analogous to
@@ -153,6 +175,13 @@ subtest closures are not inadvertently used at an upper level.
         1..4
     ok 3 - subtest passed
 
+=head2 counters_and_levelset($level)
+
+Acts as counters(), except returns an additional coderef that can be used to
+adjust the level of the counters.
+
+This is not something you're likely to need.
+
 =head1 USAGE WITH Test::Builder::Tester
 
 This package was created from code I was using to make it easier to test my
@@ -188,11 +217,6 @@ L<TAP::Harness>
 
 =back
 
-=head1 SOURCE
-
-The development version is on github at L<http://github.com/RsrchBoy/tap-simpleoutput>
-and may be cloned from L<git://github.com/RsrchBoy/tap-simpleoutput.git>
-
 =head1 BUGS
 
 Please report any bugs or feature requests on the bugtracker website
@@ -205,6 +229,25 @@ feature.
 =head1 AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+=head2 I'm a material boy in a material world
+
+=begin html
+
+<a href="https://gratipay.com/RsrchBoy/"><img src="http://img.shields.io/gratipay/RsrchBoy.svg" /></a>
+<a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Ftap-simpleoutput&title=RsrchBoy's%20CPAN%20TAP-SimpleOutput&tags=%22RsrchBoy's%20TAP-SimpleOutput%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+
+=end html
+
+Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
+rather B<it is simply a very pleasant surprise>. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you if you feel like it ;)
+
+L<Flattr|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Ftap-simpleoutput&title=RsrchBoy's%20CPAN%20TAP-SimpleOutput&tags=%22RsrchBoy's%20TAP-SimpleOutput%20in%20the%20CPAN%22>,
+L<Gratipay|https://gratipay.com/RsrchBoy/>, or indulge my
+L<Amazon Wishlist|http://bit.ly/rsrchboys-wishlist>...  If and *only* if you so desire.
 
 =head1 COPYRIGHT AND LICENSE
 
